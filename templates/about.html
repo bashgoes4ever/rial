@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% include 'crumbs.html' %}
+
+    <section class="about__block1">
+			<div class="container"><span class="section__title">О компании</span>
+				<p>Компания «РиалСтрой» начади свою деятельность на рынке с 2006 года. За этот период мы смогли стать компанией по внутренней отделке помещений различного назначения, входящих в ТОП лидеров рынка. Мы выполняем все виды ремонта от косметики комнат, до капитального ремонта квартир, офисов и коттеджей</p>
+				<div class="about__block1__flex">
+					<div class="about__block1__item"><img src="{% static 'img/check.png' %}" alt=""/><span>12 лет на рынке</span></div>
+					<div class="about__block1__item"><img src="{% static 'img/check.png' %}" alt=""/><span>более 134 довольных<br>клиентов</span></div>
+					<div class="about__block1__item"><img src="{% static 'img/check.png' %}" alt=""/><span>87 из 100 обратившихся<br>становятся клиентами</span></div>
+				</div>
+				<div class="about__block1__block clearfix">
+					<div class="about__block1__left"><img src="{% static 'img/about1/1.png' %}" alt=""/></div>
+					<div class="about__block1__right"><span class="quote">"От имени всех сотрудников нашей строительной компании приветствую Вас на нашем сайте и благодарю за проявленный к нам интерес"</span><span class="name">Бобровский Юрий Владимирович</span><span class="job">Генеральный директор компании "РиалСтрой"</span><span class="about__block1__title2">Я всегда открыт к своим клиентам</span><span class="about__block1__descriptor">Оставляйте заявку и я лично проконтролирую ваш ремонт</span>
+						<form>
+							<div class="about__block1__input">
+								<input type="text" name="name" placeholder="Ваше имя" required="required"/><img src="{% static 'img/block14/1.png' %}" alt=""/>
+							</div>
+							<div class="about__block1__input">
+								<input type="text" name="name" placeholder="Ваш телефон" required="required"/><img src="{% static 'img/block14/2.png' %}" alt=""/>
+							</div>
+							<input type="hidden" name="type" value="Заявка на консультацию"/>
+							<button class="button">Получить консультацию</button>
+							<fieldset class="checkbox">
+								<input type="checkbox" name="ch1" id="ch1" checked="checked"/>
+								<label for="ch1">Я принимаю условия <a href=''>политики <br>конфиденциальности</a></label>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+    {% include 'about/partners.html' %}
+
+    {% include 'about/stuff.html' %}
+
+    {% include 'about/advantages.html' %}
+
+    {% include 'about/tools.html' %}
+
+    {% include 'about/replies.html' %}
+
+    {% include 'about/howwedo.html' %}
+
+{% endblock %}

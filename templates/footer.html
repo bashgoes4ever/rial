@@ -1,0 +1,120 @@
+{% load static %}
+
+        <section class="block14">
+			<div class="block14__bg">
+                <img src="{% static 'img/block14/bg.png' %}" alt=""/></div>
+			<div class="container">
+				<div class="block14__titles"><span class="block14__title title-min">Заказать консультацию</span><span class="block14__descriptor">Оставьте заявку на звонок, наш менеджер <br>перезвонит и ответит на ваши вопросы</span></div>
+				<form class="block14__form">
+					<div class="block14__input-wrap">
+						<input type="text" name="name" placeholder="Ваше имя" required="required"/>
+                        <img src="{% static 'img/block14/1.png' %}" alt=""/>
+					</div>
+					<div class="block14__input-wrap">
+						<input type="text" name="name" placeholder="Ваш телефон" required="required"/>
+                        <img src="{% static 'img/block14/2.png' %}" alt=""/>
+					</div>
+					<input type="hidden" name="type" value="Заявка - Узнать стоимость"/>
+					<button class="button">Узнать стоимость</button>
+					<fieldset class="checkbox">
+						<input type="checkbox" name="ch3" id="ch3" checked="checked"/>
+						<label for="ch3">Я принимаю условия <br><a href=''>политики конфиденциальности</a></label>
+					</fieldset>
+				</form>
+			</div>
+		</section>
+
+		<footer>
+			<div class="footer__top">
+				<div class="container">
+					<div class="footer__flex">
+						<div class="footer__block1">
+                            <a href="/">
+                                <img src="{% static 'img/logo.png' %}" alt="" class="footer__logo"/>
+                            </a>
+                            <span class="footer__logo__title">Ремонт и дизайн квартир, <br>коттеджей, офисов, ресторанов</span>
+							<div class="footer__socials">
+                                <span>Мы в соц сетях</span>
+
+                                {% for s in contacts.socials_set.all %}
+                                <a href="{{ s.href }}">
+                                    <img src="/{{ s.img.url }}" alt=""/>
+                                </a>
+                                {% endfor %}
+
+                            </div>
+						</div>
+						<div class="footer__list"><span class="footer__list__title f-mobile">Полезная информация</span>
+							<ul>
+								<li><a href="{% url 'calculate' %}">Цены на ремонт</a></li>
+								<li><a href="/#calculator">Калькулятор ремонта</a></li>
+								<li><a href="{% url 'about' %}">О компании</a></li>
+								<li><a href="{% url 'replies' %}">Книга отзывов</a></li>
+								<li><a href="/#faq">Вопрос-ответ</a></li>
+								<li><a href="{% url 'all_projects' %}">Наши работы</a></li>
+							</ul>
+						</div>
+						<div class="footer__list"><span class="footer__list__title f-mobile">Услуги</span>
+							<ul>
+								<li><a href="">Все услуги</a></li>
+								<li><a href="">Дизайн интерьера</a></li>
+								<li><a href="">Ремонт квартир</a></li>
+								<li><a href="">Ремонт коттеджей</a></li>
+								<li><a href="">Ремонт комнаты</a></li>
+								<li><a href="">Ремонт ванной комнаты</a></li>
+								<li><a href="{% url 'pricelist' %}">Виды работ</a></li>
+							</ul>
+						</div>
+						<div class="footer__block2"><span class="footer__list__title">Контактная информация</span><span class="footer__phone__pre">Бесплатный звонок по России:</span>
+							<ul>
+								<li>
+                                    <img src="{% static 'img/footer/1.png' %}" alt=""/>
+
+                                    <span class="phone">
+                                        {% for p in contacts.contactsphones_set.all %}
+                                            {{ p.phone }}{% if not forloop.last %}<br>{% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </li>
+								<li><img src="{% static 'img/footer/2.png' %}" alt=""/><span>{{ contats.address }}</span></li>
+								<li><img src="{% static 'img/footer/3.png' %}" alt=""/><span>{{ contacts.time }}</span></li>
+								<li><img src="{% static 'img/footer/4.png' %}" alt=""/><span>{{ contacts.email }}</span></li>
+								<li>
+                                    <img src="{% static 'img/footer/5.png' %}" alt=""/>
+                                    <span>
+                                        {% for p in contacts.contactsbusiness_set.all %}
+                                            {{ p.business }}{% if not forloop.last %}<br>{% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer__bottom">
+				<div class="container"><span>© 2007-2018 Ремонт квартир под ключ в Казани - Компания «РиалСтрой». Правовая информация. Сайт не является публичной офертой и носит информационный характер. Обращаясь в нашу фирму для консультации через формы обратной связи, вы даете согласие на обработку ваших персональных данных</span></div>
+			</div>
+		</footer>
+	</div>
+	<div class="layer">
+		<div class="popup"><img src="{% static 'img/popup/close.png' %}" alt="" class="close"/><span class="popup__title">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</span><span class="popup__descriptor">Наш менеджер свяжется с вами и ответит на ваши вопросы</span>
+			<form class="popup__form">
+				<label>Ваше имя</label>
+				<input type="text" name="name" placeholder="Иван" required="required"/>
+				<label>Номер телефона</label>
+				<input type="text" name="phone" placeholder="+7 (___) ___-__-__" required="required"/>
+				<input type="hidden" name="type" value="Заявка на бесплатную консультацию"/>
+				<button class="button">Получить бесплатную консультацию</button>
+				<fieldset class="checkbox">
+					<input type="checkbox" name="ch1" id="ch1" checked="checked"/>
+					<label for="ch1">Я принимаю условия <a href=''>политики конфиденциальности</a></label>
+				</fieldset><span class="work-time">Режим работы: ежедневно с 8:00 до 20:00</span>
+			</form><img src="{% static 'img/popup/1.png' %}" alt="" class="popup__bg"/>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="{% static 'libs/jquery-nice-select-1.1.0/js/jquery.nice-select.min.js' %}"></script>
+	<script src="{% static 'libs/owl-carousel/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+</body>
